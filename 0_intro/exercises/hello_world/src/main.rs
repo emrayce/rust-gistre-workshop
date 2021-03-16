@@ -1,3 +1,3 @@
 fn main() {
-    std::print!("hello world!\n");
+    println!("hello world!");
 }
