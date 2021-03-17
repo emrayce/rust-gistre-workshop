@@ -1,5 +1,10 @@
 pub fn vec_sum(vec: Vec<i32>) -> i32 {
-    todo!()
+    let mut sum: i32 = 0;
+    for i in vec.iter() {
+        sum += i;
+    }
+
+    sum
 }
 
 #[cfg(test)]
