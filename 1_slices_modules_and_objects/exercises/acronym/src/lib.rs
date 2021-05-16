@@ -10,7 +10,12 @@
 /// ```
 // Side note: this doc example is also tested when running `cargo test`
 pub fn make_acronym(name: &str) -> String {
-    unimplemented!()
+    let mut acronym: String = String::new();
+    let split = name.split(' ');
+    
+    split.map(|word| word.chars().nth(0).unwrap().to_uppercase())
+          .collect()
+
 }
 
 #[cfg(test)]
