@@ -13,11 +13,8 @@ pub fn make_acronym(name: &str) -> String {
     let mut acronym: String = String::new();
     let split = name.split(' ');
     
-    for i in split {
-        acronym.push(i.chars().nth(0).unwrap());
-    }
-
-    acronym.to_uppercase()
+    split.map(|word| word.chars().nth(0).unwrap().to_uppercase())
+          .collect()
 
 }
 
