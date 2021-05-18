@@ -1,7 +1,35 @@
 /// Finds the index of `value` in the sorted slice `v`
 /// Returns the index if found, None otherwise
 pub fn binary_search(v: &[i32], value: i32) -> Option<usize> {
-    unimplemented!();
+    let mut index = None;
+
+    if v.len() > 0 {
+
+        let mid: usize = v.len() / 2;
+
+
+        if v[mid] == value {
+            index = Some(mid);
+        }
+        else if v[mid] < value { 
+            index = binary_search(&v[mid+1..], value);           
+            match index {
+                Some(x) => index = Some(mid + x + 1),
+                None => (),
+            }
+        }
+        else {
+            index = binary_search(&v[..mid], value);
+            match index {
+                Some(x) => index = Some(x),
+                None => (),
+            }
+        }
+    }
+
+     
+    index
+
 }
 
 #[cfg(test)]
