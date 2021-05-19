@@ -12,18 +12,10 @@ pub fn binary_search(v: &[i32], value: i32) -> Option<usize> {
             index = Some(mid);
         }
         else if v[mid] < value { 
-            index = binary_search(&v[mid+1..], value);           
-            match index {
-                Some(x) => index = Some(mid + x + 1),
-                None => (),
-            }
+            index = binary_search(&v[mid+1..], value).map(|x| mid + x + 1);
         }
         else {
             index = binary_search(&v[..mid], value);
-            match index {
-                Some(x) => index = Some(x),
-                None => (),
-            }
         }
     }
 
